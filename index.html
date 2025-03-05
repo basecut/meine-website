@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base Cut – Friseur in Iserlohn</title>
+  <style>
+    /* Grundlegendes Styling */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #000; /* Schwarz */
+      color: #fff; /* Weiß */
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin: 0.5rem 0 0;
+    }
+
+    /* Navigationsleiste */
+    nav {
+      background-color: #222;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hauptinhalt */
+    main {
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    main h2 {
+      font-size: 2em;
+      margin-bottom: 1rem;
+    }
+
+    main p {
+      font-size: 1.1em;
+    }
+
+    /* Bild-Hintergrund */
+    .image-background {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      background-image: url('src/images/hintergrund.jpg'); /* Pfad zum Bild */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .image-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding-top: 20%; /* Button höher positionieren */
+      color: #fff;
+    }
+
+    .image-content button {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .image-content button:hover {
+      background-color: #ddd;
+    }
+
+    /* Instagram-Galerie */
+    .instagram-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .instagram-gallery iframe {
+      width: 100%;
+      max-width: 800px; /* Breiter gemacht */
+      height: 600px; /* Höher gemacht */
+      border: none;
+    }
+
+    /* Öffnungszeiten-Tabelle */
+    .opening-hours {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+
+    .opening-hours th,
+    .opening-hours td {
+      padding: 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .opening-hours th {
+      background-color: #222;
+      color: #fff;
+    }
+
+    .opening-hours td {
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Kontaktabschnitt */
+    .contact-info {
+      background-color: #222;
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .contact-info a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9em;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      .opening-hours {
+        width: 100%;
+      }
+
+      .instagram-gallery iframe {
+        max-width: 100%;
+        height: 400px; /* Kleinere Höhe für mobile Geräte */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Base Cut</h1>
+    <p>Ihr Friseur in Iserlohn – Friedrichstraße 23, 58636 Iserlohn</p>
+  </header>
+  <nav>
+    <a data-page="home">Startseite</a>
+    <a data-page="about">Über uns</a>
+    <a data-page="services">Leistungen</a>
+    <a data-page="gallery">Galerie</a>
+    <a data-page="opening-hours">Öffnungszeiten</a>
+    <a href="https://www.google.com/maps?q=Friedrichstraße+23,+58636+Iserlohn" target="_blank">Standort</a>
+    <a data-page="contact">Kontakt</a>
+  </nav>
+  <main id="content">
+    <!-- Inhalt wird hier dynamisch geladen -->
+  </main>
+  <footer>
+    <p>&copy; 2025 Base Cut | Alle Rechte vorbehalten</p>
+  </footer>
+
+  <!-- Templates für jede Seite -->
+  <template id="home">
+    <div class="image-background">
+      <div class="image-content">
+        <h2>Willkommen bei Base Cut</h2>
+        <button onclick="loadPage('about')">Mehr erfahren</button>
+      </div>
+    </div>
+  </template>
+
+  <template id="about">
+    <h2>Über uns</h2>
+    <p>
+      Bei *Base Cut* steht Ihr Wohlbefinden im Mittelpunkt. Unser Team aus erfahrenen Friseuren und Stylisten vereint
+      Handwerk, Kreativität und Leidenschaft, um Ihnen ein unvergessliches Erlebnis zu bieten. Wir glauben daran, dass
+      jeder Besuch bei uns mehr als nur ein Haarschnitt sein sollte – es ist eine Auszeit vom Alltag, eine Gelegenheit,
+      sich selbst zu verwöhnen und gestärkt wieder hinauszugehen.
+    </p>
+    <p>
+      Unsere Philosophie basiert auf drei Säulen:
+    </p>
+    <ul>
+      <li><strong>Präzision:</strong> Jeder Schnitt, jede Farbe und jede Styling-Session wird mit höchster Sorgfalt
+        und Aufmerksamkeit durchgeführt.</li>
+      <li><strong>Individualität:</strong> Wir hören Ihnen zu und entwickeln gemeinsam mit Ihnen einen Look, der zu
+        Ihrer Persönlichkeit passt.</li>
+      <li><strong>Leidenschaft:</strong> Wir lieben, was wir tun, und das spüren Sie in jedem Detail.</li>
+    </ul>
+    <p>
+      Seit unserer Gründung in Iserlohn haben wir uns darauf spezialisiert, klassische und moderne Stile zu vereinen.
+      Ob ein zeitloser Herrenschnitt, ein moderner Fade oder eine kreative Bartpflege – bei uns sind Sie in den besten
+      Händen.
+    </p>
+    <p>
+      Besuchen Sie uns in der Friedrichstraße 23 und erleben Sie, warum *Base Cut* mehr als nur ein Friseursalon ist –
+      wir sind Ihr Partner für Stil und Selbstbewusstsein.
+    </p>
+  </template>
+
+  <template id="services">
+    <h2>Leistungen</h2>
+    <p>
+      Unsere Leistungen umfassen:
+    </p>
+    <ul>
+      <li><strong>Haarschnitt:</strong> 15 €</li>
+      <li><strong>Haarschnitt mit Bart:</strong> 25 €</li>
+      <li><strong>Maschinenschnitt:</strong> 13 €</li>
+      <li><strong>Kinderschnitt:</strong> 13 €</li>
+      <li><strong>Damenhaarschnitte:</strong> Nur auf Anfrage</li>
+      <li><strong>Dauerwelle:</strong> Nur auf Anfrage</li>
+    </ul>
+  </template>
+
+  <template id="gallery">
+    <h2>Unsere Galerie</h2>
+    <div class="instagram-gallery">
+      <iframe src="https://www.instagram.com/base_cut_iserlohn_/embed" frameborder="0"></iframe>
+    </div>
+  </template>
+
+  <template id="opening-hours">
+    <h2>Öffnungszeiten</h2>
+    <table class="opening-hours">
+      <tr>
+        <th>Tag</th>
+        <th>Zeit</th>
+      </tr>
+      <tr>
+        <td>Montag – Freitag</td>
+        <td>08:30 – 18:30 Uhr</td>
+      </tr>
+      <tr>
+        <td>Samstag</td>
+        <td>08:30 – 15:30 Uhr</td>
+      </tr>
+      <tr>
+        <td>Sonntag</td>
+        <td>Geschlossen</td>
+      </tr>
+    </table>
+  </template>
+
+  <template id="contact">
+    <h2>Kontakt</h2>
+    <p>
+      Kontaktieren Sie uns gerne per E-Mail oder folgen Sie uns auf Social Media:
+    </p>
+    <ul>
+      <li><strong>E-Mail:</strong> <a href="mailto:hassanhamliko36@gmail.com">hassanhamliko36@gmail.com</a></li>
+      <li><strong>Instagram:</strong> <a href="https://www.instagram.com/base_cut_iserlohn_" target="blank">@base_cut_iserlohn</a></li>
+      <li><strong>TikTok:</strong> <a href="https://www.tiktok.com/@basecut8" target="_blank">@basecut8</a></li>
+    </ul>
+  </template>
+
+  <script>
+    // JavaScript zum Laden der Seiten
+    const content = document.getElementById('content');
+    const templates = {
+      home: document.getElementById('home').content,
+      about: document.getElementById('about').content,
+      services: document.getElementById('services').content,
+      gallery: document.getElementById('gallery').content,
+      'opening-hours': document.getElementById('opening-hours').content,
+      contact: document.getElementById('contact').content,
+    };
+
+    // Standardseite laden
+    loadPage('home');
+
+    // Event-Listener für Navigation
+    document.querySelectorAll('nav a').forEach(link => {
+      if (link.dataset.page) {
+        link.addEventListener('click', () => loadPage(link.dataset.page));
+      }
+    });
+
+    // Funktion zum Laden der Seiten
+    function loadPage(page) {
+      content.innerHTML = '';
+      content.appendChild(document.importNode(templates[page], true));
+    }
+  </script>
+</body>
+</html>
